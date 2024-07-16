@@ -8,9 +8,8 @@ class PermutedMNIST(datasets.MNIST):
     def __init__(self, root="~/.torch/data/mnist", train=True, permute_idx=None):
         super(PermutedMNIST, self).__init__(root, train, download=True)
         assert len(permute_idx) == 28 * 28
-         # what is the point of taking permute_idx -> maybe to ensure that we only take 783 pixel information because other image could be longer
         if self.train:
-            self.train_data = torch.stack([img.float().view(-1)[permute_idx] / 255 
+            self.train_data = torch.stack([img.float().view(-1)[permute_idx] / 255
                                            for img in self.train_data])
         else:
             self.test_data = torch.stack([img.float().view(-1)[permute_idx] / 255

@@ -62,7 +62,7 @@ def normal_train(model: nn.Module, optimizer: torch.optim, data_loader: torch.ut
         optimizer.zero_grad()
         output = model(input)
         loss = F.cross_entropy(output, target)
-        epoch_loss += loss.item()
+        epoch_loss += loss.data[0]
         loss.backward()
         optimizer.step()
     return epoch_loss / len(data_loader)

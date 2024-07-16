@@ -4,5 +4,4 @@ An implementation of Elastic Weight Consolidation (EWC), proposed in James Kirkp
 
 ## Implementing EWC for GraphSage Model
 
-
 * [demo.ipynb](demo.ipynb) demonstrates EWC with supervised learning. 
